@@ -272,6 +272,7 @@ function restartGame(players = null){
 
     }
     message.classList.remove('alert-danger');
+    message.classList.remove('alert-warning');
     if (!player.host){
         player.turn = false;
     }
