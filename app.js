@@ -1,5 +1,5 @@
 const express = require('express');
-
+var PORT = process.env.PORT || 3000
 
 const app = express();
 const path = require('path');
@@ -148,6 +148,6 @@ app.get('/', function(req, res) {
     
 
 
- server.listen((3000),()=>{
+ server.listen((PORT),()=>{
      console.log('Listen on https:\\localhost:3000/')
  });   
