@@ -257,11 +257,21 @@ function calculateEquality(){
 }
 
 function restartGame(players = null){
-    if (player.host && !players){
-        console.log(player.roomId);
+    
+
+    if (!player.host){
+        player.turn = false;
+        //socket.emit('play again', player.roomId);
+    }
+    else{
         player.turn  = true;
+    }
+
+    if (!players){
         socket.emit('play again', player.roomId);
     }
+
+    
 
     const cell = document.getElementsByClassName("cell");
 
@@ -273,15 +283,18 @@ function restartGame(players = null){
     }
     message.classList.remove('alert-danger');
     message.classList.remove('alert-warning');
-    if (!player.host){
-        player.turn = false;
-    }
+    //message.classList.remove('alert-success');
+    
 
     player.win = false;
+    
+
+    //
     if (players){
         console.log(players);
         startgame(players);
     }
+    
 }
 
 socket.on('playAgain', (data)=>{
