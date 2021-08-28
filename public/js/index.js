@@ -268,6 +268,7 @@ function restartGame(players = null){
     for (let c of cell){
         c.innerHTML = "";
         c.classList.remove("win-cell");
+        c.classList.remove("text-danger");
 
     }
     message.classList.remove('alert-danger');
