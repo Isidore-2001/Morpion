@@ -51,6 +51,7 @@ app.get('/', function(req, res) {
         player.roomId = room.roomId;
         room.players.push(player);
         rooms.push(room);
+        console.log("room")
         return room;
     };
 
