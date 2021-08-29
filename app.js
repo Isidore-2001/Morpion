@@ -31,10 +31,10 @@ app.get('/', function(req, res) {
   var exec = require("child_process").exec;
   app.get('/games/morpion', function(req, res){exec("php morpion.php", function (error, stdout, stderr) {res.send(stdout);});});
 */
-/*
+
   app.get('/games/morpion', function(req, res) {
     res.sendFile(__dirname + "/templates/games/" + "morpion.html");
-    });*/
+    });
 
     app.post('/games/morpion', function(req, res) {
         var user_name = req.body.username;
