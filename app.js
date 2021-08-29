@@ -1,6 +1,6 @@
 const express = require('express');
 var PORT = process.env.PORT || 3000
-
+var php = require('php');
 const app = express();
 const path = require('path');
 const http = require('http');
@@ -21,17 +21,20 @@ app.use('/bootstrap/css', express.static(path.join(__dirname, '/node_modules/boo
 app.use('/bootstrap/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(php.express('public/'));
 
  
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + "/templates/" + "index.html");
   });
-
-
+/*
+  var exec = require("child_process").exec;
+  app.get('/games/morpion', function(req, res){exec("php morpion.php", function (error, stdout, stderr) {res.send(stdout);});});
+*/
+/*
   app.get('/games/morpion', function(req, res) {
     res.sendFile(__dirname + "/templates/games/" + "morpion.html");
-    });
-
+    });*/
 
     app.post('/games/morpion', function(req, res) {
         var user_name = req.body.username;
